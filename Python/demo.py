@@ -40,7 +40,7 @@ plt.title("Noisy image PSNR = %2.2f dB"%(10*np.log10(255*255/mse_noisy)), fontsi
 plt.axis('off')
 y0[y0<0]=0
 y0[y0>255]=255
-plt.imshow(gray2rgb(image, im_gray))
+plt.imshow(gray2rgb(image, y0))
             
 plt.subplot(1, 2, 2)
 plt.title("Denoised image PSNR = %2.2f dB"%(10*np.log10(255*255/mse_denoised)), fontsize=10)
