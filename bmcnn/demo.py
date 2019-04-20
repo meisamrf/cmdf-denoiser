@@ -25,12 +25,12 @@ im_gray = np.float32(im_gray[:,:,0])
 noise = np.random.normal(0,sigma,(im_gray.shape[0],im_gray.shape[1]))
 y0 = np.float32(im_gray) + np.float32(noise)
 
-handle = bmcnn.open('../bmcnn/models/bmcnn_16.bin')
+bmcnn_handle = bmcnn.open('../bmcnn/models/bmcnn_16.bin')
 bmcnn_out = np.zeros_like(y0)
 y0 = y0/255
 start_time = time.time()
 
-bmcnn.predict(handle, y0, bmcnn_out)
+bmcnn.predict(bmcnn_handle, y0, bmcnn_out)
 
 elapsed_time = time.time()-start_time
 bmcnn_out[bmcnn_out<0.0] = 0.0
@@ -60,4 +60,4 @@ bmcnn_out[bmcnn_out>255]=255
 plt.imshow(gray2rgb(image, bmcnn_out))
 plt.show()
 
-
+bmcnn.release(bmcnn_handle)

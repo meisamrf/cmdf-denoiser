@@ -106,5 +106,6 @@ venv.bak/
 *.filters
 *.user
 bmcnn/libs/bmcnn/
+bmcnn/libs/runner
 Python/libs/cmdftools/
 dataset/old/

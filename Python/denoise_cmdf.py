@@ -38,16 +38,16 @@ def cmdfcall(im_n,sigma):
         sys.stderr.write('Input image should be grayscale')
         sys.exit(1)
 
-    if im_n.dtype==np.dtype('float32'):
+    if im_n.dtype!=np.dtype('float32'):
         im_n = np.float32(im_n)
     
     if (im_n.shape[0]<64 or im_n.shape[1]<64):
         sys.stderr.write('Too Small Image')
         sys.exit(1)
 
-    if (im_n.shape[0]>2160 or im_n.shape[1]>3840):
+    if (im_n.shape[0]>3840 or im_n.shape[1]>3840):
         sys.stderr.write('Image size is not supported')
-        sys.exit(1)    
+        sys.exit(1)
    
     # call denoiser function
     # check the size is divisible by 8
